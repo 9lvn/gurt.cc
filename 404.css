@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: #fff;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-size: 10rem;
+  margin: 0;
+  color: #ff4c4c;
+}
+
+p {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.back-link {
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid #00ffff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.back-link:hover {
+  background: #00ffff;
+  color: #111;
+}
