@@ -8,10 +8,42 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 🌈 Glowing animated background */
+.animated-glow {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle at center, #7f00ff, #00c6ff);
+  filter: blur(160px);
+  opacity: 0.5;
+  animation: moveHue 12s ease-in-out infinite alternate;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+@keyframes moveHue {
+  0% {
+    transform: translate(-20%, -10%) scale(1);
+    background: radial-gradient(circle at 30% 70%, #7f00ff, #00c6ff);
+  }
+  50% {
+    transform: translate(10%, 5%) scale(1.1);
+    background: radial-gradient(circle at 60% 40%, #9b00ff, #00c6ff);
+  }
+  100% {
+    transform: translate(-15%, 10%) scale(1);
+    background: radial-gradient(circle at 50% 60%, #7f00ff, #33ccff);
+  }
 }
 
 .container {
   text-align: center;
+  z-index: 1;
+  position: relative;
 }
 
 h1 {
