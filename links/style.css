@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: #fff;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 🌈 Glowing animated background */
+.animated-glow {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle at center, #7f00ff, #00c6ff);
+  filter: blur(160px);
+  opacity: 0.5;
+  animation: moveHue 12s ease-in-out infinite alternate;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+@keyframes moveHue {
+  0% {
+    transform: translate(-20%, -10%) scale(1);
+    background: radial-gradient(circle at 30% 70%, #7f00ff, #00c6ff);
+  }
+  50% {
+    transform: translate(10%, 5%) scale(1.1);
+    background: radial-gradient(circle at 60% 40%, #9b00ff, #00c6ff);
+  }
+  100% {
+    transform: translate(-15%, 10%) scale(1);
+    background: radial-gradient(circle at 50% 60%, #7f00ff, #33ccff);
+  }
+}
+
+.container {
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #00ffff;
+}
+
+#link-list a {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  width: fit-content;
+  transition: all 0.3s;
+}
+
+#link-list a:hover {
+  background: #00ffff;
+  color: #111;
+}
