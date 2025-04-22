@@ -1,9 +1,10 @@
+/* Fullscreen dark base */
 body {
   margin: 0;
   padding: 0;
-  background: #111;
-  color: #fff;
+  background: #0d0d0d;
   font-family: monospace;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,61 +13,70 @@ body {
   position: relative;
 }
 
-/*  Glowing animated background */
-.animated-glow {
+/* Animated gradient background */
+.gradient-bg {
   position: absolute;
-  width: 1000px;
-  height: 1000px;
-  background: radial-gradient(circle at center, #7f00ff, #00c6ff);
-  filter: blur(160px);
-  opacity: 0.5;
-  animation: moveHue 12s ease-in-out infinite alternate;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at center, #00f2ff, #9b00ff, #002bff);
+  filter: blur(180px);
+  animation: swirl 12s ease-in-out infinite;
   z-index: 0;
-  border-radius: 50%;
+  opacity: 0.45;
 }
 
-@keyframes moveHue {
+@keyframes swirl {
   0% {
-    transform: translate(-20%, -10%) scale(1);
-    background: radial-gradient(circle at 30% 70%, #7f00ff, #00c6ff);
+    transform: translate(-10%, -10%) scale(1);
   }
   50% {
-    transform: translate(10%, 5%) scale(1.1);
-    background: radial-gradient(circle at 60% 40%, #9b00ff, #00c6ff);
+    transform: translate(10%, 5%) scale(1.2);
   }
   100% {
-    transform: translate(-15%, 10%) scale(1);
-    background: radial-gradient(circle at 50% 60%, #7f00ff, #33ccff);
+    transform: translate(-5%, 15%) scale(1);
   }
 }
 
-.container {
-  text-align: center;
-  z-index: 1;
+/* Frosted glass card */
+.hub-card {
   position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 3rem;
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  text-align: center;
 }
 
 h1 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
+  font-size: 2.5rem;
   color: #00ffff;
+  margin-bottom: 1.5rem;
 }
 
-#link-list a {
-  display: block;
-  margin: 1rem auto;
-  padding: 0.75rem 1.5rem;
-  background: transparent;
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link-list li {
+  margin: 1rem 0;
+}
+
+.link-list a {
   color: #00ffff;
-  border: 2px solid #00ffff;
   text-decoration: none;
-  border-radius: 8px;
   font-size: 1.2rem;
-  width: fit-content;
-  transition: all 0.3s;
+  border: 2px solid #00ffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  transition: 0.3s ease;
 }
 
-#link-list a:hover {
+.link-list a:hover {
   background: #00ffff;
-  color: #111;
+  color: #0d0d0d;
 }
