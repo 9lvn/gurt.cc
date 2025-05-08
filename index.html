@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Crazy Cattle 3D</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <div class="loader" id="loader">Loading Crazy Cattle 3D...</div>
-    <iframe id="gameFrame" src="https://crazy-cattle3d.org/game/crazycattle3d/"></iframe>
-  </body>
-</html>
+<body>
+  <div class="animated-glow"></div>
+
+  <!-- Search Overlay -->
+  <div id="search-overlay">
+    <input type="text" id="search-input" placeholder="Search games..." />
+  </div>
+
+  <header>
+    <div class="logo">PokiClone</div>
+    <div id="search-icon">&#128269;</div> <!-- 🔍 icon -->
+  </header>
+
+  <main>
+    <div id="game-grid"></div>
+  </main>
+
+  <footer>
+    <p>© 2025 PokiClone</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
