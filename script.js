@@ -19,7 +19,7 @@ const games = [
 const grid = document.getElementById('game-grid');
 
 function displayGames(filter = "") {
-  grid.innerHTML = ""; // Clear
+  grid.innerHTML = "";
 
   const filteredGames = games.filter(game =>
     game.name.toLowerCase().includes(filter.toLowerCase())
@@ -49,9 +49,8 @@ function displayGames(filter = "") {
   });
 }
 
-displayGames(); // Initial display
+displayGames();
 
-// Search overlay toggle
 const searchOverlay = document.getElementById("search-overlay");
 const searchInput = document.getElementById("search-input");
 const searchIcon = document.getElementById("search-icon");
@@ -65,21 +64,25 @@ searchOverlay.addEventListener("click", (e) => {
   if (e.target === searchOverlay && searchOverlay.classList.contains("active")) {
     searchOverlay.classList.remove("active");
     searchInput.value = "";
-    displayGames(); // Reset to all games
+    displayGames();
   }
 });
 
-// Live filter (optional, remains for previewing while typing)
 searchInput.addEventListener("input", (e) => {
   displayGames(e.target.value);
 });
 
-// ✅ NEW: Search on Enter key press
 searchInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     const searchTerm = searchInput.value.trim();
-    searchOverlay.classList.remove("active"); // Hide overlay
-    displayGames(searchTerm); // Filter results
-    searchInput.value = ""; // Clear input (optional)
+
+    searchOverlay.classList.remove("active");
+    searchOverlay.classList.add("fade-out");
+
+    setTimeout(() => {
+      searchOverlay.classList.remove("fade-out");
+      displayGames(searchTerm);
+      searchInput.value = "";
+    }, 300);
   }
 });
