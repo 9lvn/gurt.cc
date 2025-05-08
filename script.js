@@ -1,8 +1,8 @@
 const games = [
   {
-    name: "Car Racing",
-    image: "https://via.placeholder.com/600x400.png?text=Car+Racing",
-    link: "games/car-racing/index.html"
+    name: "Stack",
+    image: "https://childrenandmedia.org.au/assets/images/app-reviews/Stack.png",
+    link: "https://gurt.cc/stack/"
   },
   {
     name: "Platformer",
