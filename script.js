@@ -19,70 +19,62 @@ const games = [
 const grid = document.getElementById('game-grid');
 
 function displayGames(filter = "") {
-  grid.innerHTML = "";
+  grid.innerHTML = ""; // Clear
+  games
+    .filter(game => game.name.toLowerCase().includes(filter.toLowerCase()))
+    .forEach(game => {
+      const card = document.createElement("a");
+      card.className = "game-card";
+      card.href = game.link;
+      card.target = "_blank";
 
-  const filteredGames = games.filter(game =>
-    game.name.toLowerCase().includes(filter.toLowerCase())
-  );
+      const img = document.createElement("img");
+      img.src = game.image;
+      img.alt = game.name;
 
-  if (filteredGames.length === 0) {
-    const message = document.createElement("p");
-    message.textContent = "No games found.";
-    message.style.fontSize = "1.2rem";
-    message.style.color = "#ccc";
-    grid.appendChild(message);
-    return;
-  }
-
-  filteredGames.forEach(game => {
-    const card = document.createElement("a");
-    card.className = "game-card";
-    card.href = game.link;
-    card.target = "_blank";
-
-    const img = document.createElement("img");
-    img.src = game.image;
-    img.alt = game.name;
-
-    card.appendChild(img);
-    grid.appendChild(card);
-  });
+      card.appendChild(img);
+      grid.appendChild(card);
+    });
 }
 
-displayGames();
+displayGames(); // Initial display
 
 const searchOverlay = document.getElementById("search-overlay");
 const searchInput = document.getElementById("search-input");
 const searchIcon = document.getElementById("search-icon");
 
+// Show overlay with search bar pop-in
 searchIcon.addEventListener("click", () => {
   searchOverlay.classList.add("active");
+  searchInput.classList.remove("pop-out");
   searchInput.focus();
 });
 
+// Hide when clicking outside
 searchOverlay.addEventListener("click", (e) => {
-  if (e.target === searchOverlay && searchOverlay.classList.contains("active")) {
+  if (e.target === searchOverlay) {
     searchOverlay.classList.remove("active");
     searchInput.value = "";
     displayGames();
   }
 });
 
+// Live filter
 searchInput.addEventListener("input", (e) => {
   displayGames(e.target.value);
 });
 
+// Pop-out on Enter, then filter
 searchInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     const searchTerm = searchInput.value.trim();
-
-    searchOverlay.classList.remove("active");
-    searchOverlay.classList.add("fade-out");
+    searchInput.classList.add("pop-out");
 
     setTimeout(() => {
-      searchOverlay.classList.remove("fade-out");
+      searchOverlay.classList.remove("active");
+      searchInput.classList.remove("pop-out");
       displayGames(searchTerm);
       searchInput.value = "";
-    }, 300);
+    }, 300); // Matches pop-out animation
   }
 });
