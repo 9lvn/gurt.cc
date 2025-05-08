@@ -5,9 +5,9 @@ const games = [
     link: "https://gurt.cc/stack/"
   },
   {
-    name: "Platformer",
-    image: "https://via.placeholder.com/300x300.png?text=Platformer",
-    link: "games/platformer/index.html"
+    name: "Block Blast",
+    image: "https://m.media-amazon.com/images/I/71mDg3UjuqL.png",
+    link: "https://gurt.cc/blockblast/"
   },
   {
     name: "Puzzle Game",
