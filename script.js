@@ -20,21 +20,33 @@ const grid = document.getElementById('game-grid');
 
 function displayGames(filter = "") {
   grid.innerHTML = ""; // Clear
-  games
-    .filter(game => game.name.toLowerCase().includes(filter.toLowerCase()))
-    .forEach(game => {
-      const card = document.createElement("a");
-      card.className = "game-card";
-      card.href = game.link;
-      card.target = "_blank";
 
-      const img = document.createElement("img");
-      img.src = game.image;
-      img.alt = game.name;
+  const filteredGames = games.filter(game =>
+    game.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
-      card.appendChild(img);
-      grid.appendChild(card);
-    });
+  if (filteredGames.length === 0) {
+    const message = document.createElement("p");
+    message.textContent = "No games found.";
+    message.style.fontSize = "1.2rem";
+    message.style.color = "#ccc";
+    grid.appendChild(message);
+    return;
+  }
+
+  filteredGames.forEach(game => {
+    const card = document.createElement("a");
+    card.className = "game-card";
+    card.href = game.link;
+    card.target = "_blank";
+
+    const img = document.createElement("img");
+    img.src = game.image;
+    img.alt = game.name;
+
+    card.appendChild(img);
+    grid.appendChild(card);
+  });
 }
 
 displayGames(); // Initial display
@@ -50,14 +62,24 @@ searchIcon.addEventListener("click", () => {
 });
 
 searchOverlay.addEventListener("click", (e) => {
-  if (e.target === searchOverlay) {
+  if (e.target === searchOverlay && searchOverlay.classList.contains("active")) {
     searchOverlay.classList.remove("active");
     searchInput.value = "";
-    displayGames();
+    displayGames(); // Reset to all games
   }
 });
 
-// Live filter
+// Live filter (optional, remains for previewing while typing)
 searchInput.addEventListener("input", (e) => {
   displayGames(e.target.value);
+});
+
+// ✅ NEW: Search on Enter key press
+searchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const searchTerm = searchInput.value.trim();
+    searchOverlay.classList.remove("active"); // Hide overlay
+    displayGames(searchTerm); // Filter results
+    searchInput.value = ""; // Clear input (optional)
+  }
 });
