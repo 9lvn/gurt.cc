@@ -10,9 +10,9 @@ const games = [
     link: "https://gurt.cc/blockblast/"
   },
   {
-    name: "Puzzle Game",
-    image: "https://via.placeholder.com/500x700.png?text=Puzzle+Game",
-    link: "games/puzzle/index.html"
+    name: "Stickman Hook",
+    image: "https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=1200,height=1200,fit=cover,f=png/99e090d154caf30f3625df7e456d5984.png",
+    link: "https://gurt.cc/stickman/"
   },
   {
     name: "Subway Surfers",
