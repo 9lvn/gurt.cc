@@ -13,6 +13,11 @@ const games = [
     name: "Puzzle Game",
     image: "https://via.placeholder.com/500x700.png?text=Puzzle+Game",
     link: "games/puzzle/index.html"
+  },
+  {
+    name: "Subway Surfers",
+    image: "https://play-lh.googleusercontent.com/xrp1TmYQoexB5tTC37xS7jXemTRUQDWi72SL6iqOPZ-bzjvN_tUWBRgYNUOVB1NseA",
+    link: "https://gurt.cc/subwaysurfers/"
   }
 ];
 
