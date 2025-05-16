@@ -18,6 +18,11 @@ const games = [
     name: "Subway Surfers",
     image: "https://play-lh.googleusercontent.com/xrp1TmYQoexB5tTC37xS7jXemTRUQDWi72SL6iqOPZ-bzjvN_tUWBRgYNUOVB1NseA",
     link: "https://gurt.cc/subwaysurfers/"
+  },
+  {
+    name: "Level Devil",
+    image: "https://leveldevil.vip/logo.png",
+    link: "https://gurt.cc/leveldevil"
   }
 ];
 
