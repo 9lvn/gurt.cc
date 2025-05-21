@@ -23,6 +23,11 @@ const games = [
     name: "Level Devil",
     image: "https://leveldevil.vip/logo.png",
     link: "https://gurt.cc/leveldevil"
+  },
+  {
+    name: "Level Devil",
+    image: "https://level-devil.io/cache/data/image/game/level-devil-2-f180x180.webp",
+    link: "https://gurt.cc/leveldevil2"
   }
 ];
 
