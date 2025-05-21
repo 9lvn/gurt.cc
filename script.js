@@ -25,7 +25,7 @@ const games = [
     link: "https://gurt.cc/leveldevil"
   },
   {
-    name: "Level Devil",
+    name: "Level Devil 2",
     image: "https://level-devil.io/cache/data/image/game/level-devil-2-f180x180.webp",
     link: "https://gurt.cc/leveldevil2"
   }
@@ -33,23 +33,35 @@ const games = [
 
 const grid = document.getElementById('game-grid');
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 function displayGames(filter = "") {
   grid.innerHTML = ""; // Clear
-  games
-    .filter(game => game.name.toLowerCase().includes(filter.toLowerCase()))
-    .forEach(game => {
-      const card = document.createElement("a");
-      card.className = "game-card";
-      card.href = game.link;
-      card.target = "_blank";
 
-      const img = document.createElement("img");
-      img.src = game.image;
-      img.alt = game.name;
+  const filteredGames = games.filter(game =>
+    game.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
-      card.appendChild(img);
-      grid.appendChild(card);
-    });
+  shuffleArray(filteredGames); // random order every time
+
+  filteredGames.forEach(game => {
+    const card = document.createElement("a");
+    card.className = "game-card";
+    card.href = game.link;
+    card.target = "_blank";
+
+    const img = document.createElement("img");
+    img.src = game.image;
+    img.alt = game.name;
+
+    card.appendChild(img);
+    grid.appendChild(card);
+  });
 }
 
 displayGames(); // Initial display
