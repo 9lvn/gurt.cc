@@ -28,6 +28,11 @@ const games = [
     name: "Level Devil 2",
     image: "https://level-devil.io/cache/data/image/game/level-devil-2-f180x180.webp",
     link: "https://gurt.cc/leveldevil2"
+  },
+  {
+    name: "Fortnite",
+    image: "https://static.wikia.nocookie.net/logopedia/images/d/db/Fortnite_S1.svg/revision/latest/scale-to-width-down/250?cb=20210330161743",
+    link: "https://gurt.cc/fortnite"
   }
 ];
 
