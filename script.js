@@ -31,7 +31,7 @@ const games = [
   },
   {
     name: "Fortnite",
-    image: "https://static.wikia.nocookie.net/logopedia/images/d/db/Fortnite_S1.svg/revision/latest/scale-to-width-down/250?cb=20210330161743",
+    image: "https://www.gurt.cc/fortnite/250.png",
     link: "https://gurt.cc/fortnite"
   }
 ];
