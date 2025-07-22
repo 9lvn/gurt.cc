@@ -33,6 +33,11 @@ const games = [
     name: "Fortnite",
     image: "https://www.gurt.cc/fortnite/250.png",
     link: "https://gurt.cc/fortnite"
+  },
+  {
+    name: "Plinko Balls",
+    image: "https://i.imgur.com/IoaWHsa.png",
+    link: "https://gurt.cc/plinko"
   }
 ];
 
