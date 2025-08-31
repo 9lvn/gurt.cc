@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crossy Road — Vanilla JS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Crossy Road — Vanilla JS</h1>
+    <div class="controls">
+      <button id="btnPause">⏸️ Pause</button>
+      <button id="btnRestart">🔄 Restart</button>
+    </div>
+  </header>
+
+  <div id="wrap">
+    <canvas id="game" width="720" height="960"></canvas>
+    <div class="hud">
+      <div class="top">
+        <div class="badge" id="score">Score: 0</div>
+        <div class="badge" id="best">Best: 0</div>
+        <div class="badge" id="info">Use arrows/WASD or tap</div>
+      </div>
+    </div>
+    <div class="center-message" id="message" hidden>
+      <h2 id="msg-title">Crossy Road</h2>
+      <p id="msg-sub">Press Space / Tap to start</p>
+    </div>
+
+    <div class="dpad" id="dpad">
+      <button class="blank"></button>
+      <button data-dir="up">⬆️</button>
+      <button class="blank"></button>
+      <button data-dir="left">⬅️</button>
+      <button data-dir="down">⬇️</button>
+      <button data-dir="right">➡️</button>
+      <button class="blank"></button>
+      <button class="blank"></button>
+      <button class="blank"></button>
+    </div>
+  </div>
+
+  <footer>
+    <span>Endless arcade hopping. Keyboard, mouse, or touch supported.</span>
+    <span>© You — customize freely.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
