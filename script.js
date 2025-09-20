@@ -37,7 +37,12 @@ const games = [
   {
     name: "Plinko Balls",
     image: "https://i.imgur.com/IoaWHsa.png",
-    link: "https://gurt.cc/plinko"
+    link: "https://gurt.cc/plinko" 
+  },
+  {
+    name: "Run 3",
+    image: "https://img.poki-cdn.com/cdn-cgi/image/q=78,scq=50,width=204,height=204,fit=cover,f=auto/d3c19e9b-9b7b-4a54-9cb5-6188a5bd7d3b/run-3.png",
+    link: "https://gurt.cc/run3"
   }
 ];
 
