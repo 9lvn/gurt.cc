@@ -140,75 +140,109 @@
 </div>
 <script>
 function formatNumber(num) {
-   if (Number.isInteger(num)) return num;
-   return Math.round(num * 100) / 100;
+    if (Number.isInteger(num)) return num;
+    return Math.round(num * 100) / 100;
 }
+
 function berekenOntbinding() {
-   const a = parseFloat(document.getElementById('a1').value);
-   const b = parseFloat(document.getElementById('b1').value);
-   const c = parseFloat(document.getElementById('c1').value);
-   const result = document.getElementById('result');
-   if (isNaN(a) || isNaN(b) || isNaN(c) || a === 0) {
-       result.innerHTML = "Vul alle velden correct in.";
-       return;
-   }
-   document.getElementById('a2').value = a;
-   document.getElementById('b2').value = b;
-   document.getElementById('c2').value = c;
-   const h = -b / (2*a);
-   const k = a*h*h + b*h + c;
-   const tussenstap = `(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})${k>=0?'+':'-'}${formatNumber(Math.abs(k))}`;
-   const volledig = `${a !==1 ? a : ""}(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})²${k>=0?'+':'-'}${formatNumber(Math.abs(k))}`;
-   result.innerHTML = `
-<div class="step">Stap 0: ${a}x² ${b>=0?'+':'-'} ${Math.abs(b)}x ${c>=0?'+':'-'} ${Math.abs(c)}</div>
-<div class="step">Stap 1: ${tussenstap}</div>
-<div class="step">Stap 2: ${volledig}</div>
-   `;
-   calculateSnijpunten(a, b, c);
+    const a = parseFloat(document.getElementById('a1').value);
+    const b = parseFloat(document.getElementById('b1').value);
+    const c = parseFloat(document.getElementById('c1').value);
+    const result = document.getElementById('result');
+
+    if (isNaN(a) || isNaN(b) || isNaN(c) || a === 0) {
+        result.innerHTML = "Vul alle velden correct in.";
+        document.getElementById('result2').innerHTML = "";
+        return;
+    }
+
+    // Sync values with second calculator
+    document.getElementById('a2').value = a;
+    document.getElementById('b2').value = b;
+    document.getElementById('c2').value = c;
+
+    const h = -b / (2*a);
+    const k = a*h*h + b*h + c;
+
+    const tussenstap = `(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})${k>=0?'+':'-'}${formatNumber(Math.abs(k))}`;
+    const volledig = `${a !==1 ? a : ""}(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})²${k>=0?'+':'-'}${formatNumber(Math.abs(k))}`;
+
+    result.innerHTML = `
+        <div class="step">Stap 0: ${a}x² ${b>=0?'+':'-'} ${Math.abs(b)}x ${c>=0?'+':'-'} ${Math.abs(c)}</div>
+        <div class="step">Stap 1: ${tussenstap}</div>
+        <div class="step">Stap 2: ${volledig}</div>
+    `;
+
+    calculateSnijpunten(a, b, c);
 }
+
 function berekenOntbindingVanSnijpunten() {
-   const a = parseFloat(document.getElementById('a2').value);
-   const b = parseFloat(document.getElementById('b2').value);
-   const c = parseFloat(document.getElementById('c2').value);
-   const result = document.getElementById('result');
-   if (isNaN(a) || isNaN(b) || isNaN(c) || a === 0) {
-       result.innerHTML = "Vul alle velden correct in.";
-       return;
-   }
-   document.getElementById('a1').value = a;
-   document.getElementById('b1').value = b;
-   document.getElementById('c1').value = c;
-   const h = -b / (2*a);
-   const k = a*h*h + b*h + c;
-   const tussenstap = `(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})${k>=0?'+':'-'}${formatNumber(Math.abs(k))}`;
-   const volledig = `${a !==1 ? a : ""}(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})²${k>=0?'+':'-'}${formatNumber(Math.abs(k))}`;
-   result.innerHTML = `
-<div class="step">Stap 0: ${a}x² ${b>=0?'+':'-'} ${Math.abs(b)}x ${c>=0?'+':'-'} ${Math.abs(c)}</div>
-<div class="step">Stap 1: ${tussenstap}</div>
-<div class="step">Stap 2: ${volledig}</div>
-   `;
-   calculateSnijpunten(a, b, c);
+    const a = parseFloat(document.getElementById('a2').value);
+    const b = parseFloat(document.getElementById('b2').value);
+    const c = parseFloat(document.getElementById('c2').value);
+    const result = document.getElementById('result');
+
+    if (isNaN(a) || isNaN(b) || isNaN(c) || a === 0) {
+        result.innerHTML = "Vul alle velden correct in.";
+        document.getElementById('result2').innerHTML = "";
+        return;
+    }
+
+    // Sync values with first calculator
+    document.getElementById('a1').value = a;
+    document.getElementById('b1').value = b;
+    document.getElementById('c1').value = c;
+
+    const h = -b / (2*a);
+    const k = a*h*h + b*h + c;
+
+    const tussenstap = `(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})${k>=0?'+':'-'}${formatNumber(Math.abs(k))}`;
+    const volledig = `${a !==1 ? a : ""}(x${h>=0?'+':'-'}${formatNumber(Math.abs(h))})²${k>=0?'+':'-'}${formatNumber(Math.abs(k))}`;
+
+    result.innerHTML = `
+        <div class="step">Stap 0: ${a}x² ${b>=0?'+':'-'} ${Math.abs(b)}x ${c>=0?'+':'-'} ${Math.abs(c)}</div>
+        <div class="step">Stap 1: ${tussenstap}</div>
+        <div class="step">Stap 2: ${volledig}</div>
+    `;
+
+    calculateSnijpunten(a, b, c);
 }
+
 function calculateSnijpunten(a, b, c) {
-   const result = document.getElementById('result2');
-   const discriminant = b*b - 4*a*c;
-   let resultText = "Discriminant = " + formatNumber(discriminant) + "<br>";
-   if (discriminant > 0) {
-       const x1 = (-b + Math.sqrt(discriminant)) / (2*a);
-       const x2 = (-b - Math.sqrt(discriminant)) / (2*a);
-       resultText += `Twee snijpunten: x₁ = ${formatNumber(x1)}, x₂ = ${formatNumber(x2)}`;
-   } else if (discriminant === 0) {
-       const x = -b / (2*a);
-       resultText += `Één snijpunt: x = ${formatNumber(x)}`;
-   } else {
-       resultText += "Geen reële snijpunten.";
-   }
-   result.innerHTML = resultText;
+    const result = document.getElementById('result2');
+    const discriminant = b*b - 4*a*c;
+    let resultText = "Discriminant = " + formatNumber(discriminant) + "<br>";
+
+    if (discriminant > 0) {
+        const x1 = (-b + Math.sqrt(discriminant)) / (2*a);
+        const x2 = (-b - Math.sqrt(discriminant)) / (2*a);
+        resultText += `Twee snijpunten: x₁ = ${formatNumber(x1)}, x₂ = ${formatNumber(x2)}`;
+    } else if (discriminant === 0) {
+        const x = -b / (2*a);
+        resultText += `Één snijpunt: x = ${formatNumber(x)}`;
+    } else {
+        resultText += "Geen reële snijpunten.";
+    }
+    result.innerHTML = resultText;
 }
+
+// Enter key still triggers calculation
 document.addEventListener("keydown", function(event) {
-   if(event.key === "Enter") {
-       berekenOntbinding();
-   }
+    if(event.key === "Enter") {
+        berekenOntbinding();
+    }
+});
+
+// 🔥 Real-time updates
+['a1','b1','c1','a2','b2','c2'].forEach(id => {
+    document.getElementById(id).addEventListener('input', () => {
+        // Determine which calculator was used
+        if (['a1','b1','c1'].includes(id)) {
+            berekenOntbinding();
+        } else {
+            berekenOntbindingVanSnijpunten();
+        }
+    });
 });
 </script>
 </body>
